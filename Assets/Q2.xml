@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Data xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Questions>
+    <Question>
+      <Info>Loại trái cây nào được mệnh danh là "nữ hoàng" của Cần Thơ?</Info>
+      <Answers>
+        <Answer>
+          <Info>Xoài</Info>
+          <IsCorrect>false</IsCorrect>
+        </Answer>
+        <Answer>
+          <Info>Sầu riêng</Info>
+          <IsCorrect>true</IsCorrect>
+        </Answer>
+        <Answer>
+          <Info>Mận</Info>
+          <IsCorrect>false</IsCorrect>
+        </Answer>
+        <Answer>
+          <Info>Bưởi</Info>
+          <IsCorrect>false</IsCorrect>
+        </Answer>
+      </Answers>
+      <UseTimer>true</UseTimer>
+      <Timer>25</Timer>
+      <Type>Single</Type>
+      <AddScore>100</AddScore>
+    </Question>
+    <Question>
+      <Info>Nơi đây nổi tiếng với khu chợ nổi nào thu hút du khách trong và ngoài nước?</Info>
+      <Answers>
+        <Answer>
+          <Info>Chợ Nổi Phong Điền</Info>
+          <IsCorrect>false</IsCorrect>
+        </Answer>
+        <Answer>
+          <Info>Chợ Nổi Cái Bè</Info>
+          <IsCorrect>false</IsCorrect>
+        </Answer>
+        <Answer>
+          <Info>Chợ Nổi Cái Răng</Info>
+          <IsCorrect>true</IsCorrect>
+        </Answer>
+        <Answer>
+          <Info>Chợ Nổi Phụng Hiệp</Info>
+          <IsCorrect>false</IsCorrect>
+        </Answer>
+      </Answers>
+      <UseTimer>true</UseTimer>
+      <Timer>25</Timer>
+      <Type>Single</Type>
+      <AddScore>100</AddScore>
+    </Question>
+  </Questions>
+</Data>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Data xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Questions>
+    <Question>
+      <Info>Món ăn nào là đặc sản của Cần Thơ mà du khách không thể bỏ qua?:</Info>
+      <Answers>
+        <Answer>
+          <Info>Bánh xèo</Info>
+          <IsCorrect>false</IsCorrect>
+        </Answer>
+        <Answer>
+          <Info>Lẩu mắm</Info>
+          <IsCorrect>true</IsCorrect>
+        </Answer>
+        <Answer>
+          <Info>Bánh canh ghẹ</Info>
+          <IsCorrect>false</IsCorrect>
+        </Answer>
+        <Answer>
+          <Info>Bánh tầm bì</Info>
+          <IsCorrect>false</IsCorrect>
+        </Answer>
+      </Answers>
+      <UseTimer>true</UseTimer>
+      <Timer>25</Timer>
+      <Type>Single</Type>
+      <AddScore>10</AddScore>
+    </Question>
+    <Question>
+      <Info>Nơi nào ở Cần Thơ được mệnh danh là "vựa lúa lớn nhất Đồng bằng sông Cửu Long"?</Info>
+      <Answers>
+        <Answer>
+          <Info>Huyện Thốt Nốt</Info>
+          <IsCorrect>true</IsCorrect>
+        </Answer>
+        <Answer>
+          <Info>Huyện Phong Điền</Info>
+          <IsCorrect>false</IsCorrect>
+        </Answer>
+        <Answer>
+          <Info>Huyện Vĩnh Thạnh</Info>
+          <IsCorrect>false</IsCorrect>
+        </Answer>
+        <Answer>
+          <Info>Huyện Châu Thành</Info>
+          <IsCorrect>false</IsCorrect>
+        </Answer>
+      </Answers>
+      <UseTimer>true</UseTimer>
+      <Timer>10</Timer>
+      <Type>Multi</Type>
+      <AddScore>25</AddScore>
+    </Question>
+  </Questions>
+</Data>
