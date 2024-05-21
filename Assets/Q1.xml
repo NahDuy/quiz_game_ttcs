@@ -1,55 +1,255 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <Data xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Questions>
-    <Question>
-      <Info>Món ăn nào là đặc sản của Cần Thơ mà du khách không thể bỏ qua?:</Info>
-      <Answers>
-        <Answer>
-          <Info>Bánh xèo</Info>
-          <IsCorrect>false</IsCorrect>
-        </Answer>
-        <Answer>
-          <Info>Lẩu mắm</Info>
-          <IsCorrect>true</IsCorrect>
-        </Answer>
-        <Answer>
-          <Info>Bánh canh ghẹ</Info>
-          <IsCorrect>false</IsCorrect>
-        </Answer>
-        <Answer>
-          <Info>Bánh tầm bì</Info>
-          <IsCorrect>false</IsCorrect>
-        </Answer>
-      </Answers>
-      <UseTimer>true</UseTimer>
-      <Timer>25</Timer>
-      <Type>Single</Type>
-      <AddScore>10</AddScore>
-    </Question>
-    <Question>
-      <Info>Nơi nào ở Cần Thơ được mệnh danh là "vựa lúa lớn nhất Đồng bằng sông Cửu Long"?</Info>
-      <Answers>
-        <Answer>
-          <Info>Huyện Thốt Nốt</Info>
-          <IsCorrect>true</IsCorrect>
-        </Answer>
-        <Answer>
-          <Info>Huyện Phong Điền</Info>
-          <IsCorrect>false</IsCorrect>
-        </Answer>
-        <Answer>
-          <Info>Huyện Vĩnh Thạnh</Info>
-          <IsCorrect>false</IsCorrect>
-        </Answer>
-        <Answer>
-          <Info>Huyện Châu Thành</Info>
-          <IsCorrect>false</IsCorrect>
-        </Answer>
-      </Answers>
-      <UseTimer>true</UseTimer>
-      <Timer>10</Timer>
-      <Type>Multi</Type>
-      <AddScore>25</AddScore>
-    </Question>
-  </Questions>
+    <Questions>
+        <Question>
+            <Info>1. Núi nào ở Cao Bằng được mệnh danh là "nóc nhà Đông Dương"?</Info>
+            <Answers>
+                <Answer>
+                    <Info>A. Phia Oắc</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>B. Núi Lục Nam</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>C. Núi Mẫu Sơn</Info>
+                    <IsCorrect>true</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>D. Núi Ngọc Rồng</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+            </Answers>
+            <UseTimer>true</UseTimer>
+            <Timer>25</Timer>
+            <Type>Single</Type>
+            <AddScore>100</AddScore>
+        </Question>
+        <Question>
+            <Info>2. Di tích lịch sử nào ở Cao Bằng được UNESCO công nhận là Di sản văn hóa thế giới?</Info>
+            <Answers>
+                <Answer>
+                    <Info>A. Khu di tích Pác Bó</Info>
+                    <IsCorrect>true</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>B. Khu di tích ATK Định Hóa</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>C. Khu di tích Tân Trào</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>D. Khu di tích Chiến trường Đồng Cam</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+            </Answers>
+            <UseTimer>true</UseTimer>
+            <Timer>25</Timer>
+            <Type>Single</Type>
+            <AddScore>100</AddScore>
+        </Question>
+        <Question>
+            <Info>3. Cao Bằng nổi tiếng với đặc sản nào?</Info>
+            <Answers>
+                <Answer>
+                    <Info>A. Bánh cuốn Cao Bằng</Info>
+                    <IsCorrect>true</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>B. Phở Cao Bằng</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>C. Bánh áp chao</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>D. Bánh chưng gật</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+            </Answers>
+            <UseTimer>true</UseTimer>
+            <Timer>25</Timer>
+            <Type>Single</Type>
+            <AddScore>100</AddScore>
+        </Question>
+        <Question>
+            <Info>4. Lễ hội truyền thống độc đáo nào diễn ra hàng năm tại Cao Bằng thu hút đông đảo du khách?</Info>
+            <Answers>
+                <Answer>
+                    <Info>A. Lễ hội Lồng Tông</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>B. Lễ hội Đền Mẫu Đồng Đăng</Info>
+                    <IsCorrect>true</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>C. Lễ hội Chùa Hang</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>D. Lễ hội Hoa Tam Giác Mạch</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+            </Answers>
+            <UseTimer>true</UseTimer>
+            <Timer>25</Timer>
+            <Type>Single</Type>
+            <AddScore>100</AddScore>
+        </Question>
+        <Question>
+            <Info>5. Cao Bằng có bao nhiêu dân tộc sinh sống?</Info>
+            <Answers>
+                <Answer>
+                    <Info>A. 6</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>B. 8</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>C. 10</Info>
+                    <IsCorrect>true</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>D. 12</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+            </Answers>
+            <UseTimer>true</UseTimer>
+            <Timer>25</Timer>
+            <Type>Single</Type>
+            <AddScore>100</AddScore>
+        </Question>
+        <Question>
+            <Info>6. Cao Bằng có địa hình như thế nào?</Info>
+            <Answers>
+                <Answer>
+                    <Info>A. Đồng bằng</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>B. Núi cao</Info>
+                    <IsCorrect>true</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>C. Bờ biển</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>D. Núi xen kẽ đồng bằng</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+            </Answers>
+            <UseTimer>true</UseTimer>
+            <Timer>25</Timer>
+            <Type>Single</Type>
+            <AddScore>100</AddScore>
+        </Question>
+        <Question>
+            <Info>7. Cao Bằng giáp ranh với những tỉnh thành nào?</Info>
+            <Answers>
+                <Answer>
+                    <Info>A. Bắc Kạn, Thái Nguyên, Lạng Sơn, Quảng Ninh</Info>
+                    <IsCorrect>true</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>B. Tuyên Quang, Hà Giang, Yên Bái, Lào Cai</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>C. Phú Thọ, Vĩnh Phúc, Hòa Bình, Ninh Bình</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>D. Thanh Hóa, Nghệ An, Hà Tĩnh, Quảng Bình</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+            </Answers>
+            <UseTimer>true</UseTimer>
+            <Timer>25</Timer>
+            <Type>Single</Type>
+            <AddScore>100</AddScore>
+        </Question>
+        <Question>
+            <Info>8. Cao Bằng có sông nào chảy qua?</Info>
+            <Answers>
+                <Answer>
+                    <Info>A. Sông Hồng</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>B. Sông Mã</Info>
+                    <IsCorrect>true</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>C. Sông Cả</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>D. Sông Gianh</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+            </Answers>
+            <UseTimer>true</UseTimer>
+            <Timer>25</Timer>
+            <Type>Single</Type>
+            <AddScore>100</AddScore>
+        </Question>
+        <Question>
+            <Info>9. Danh nhân nào nổi tiếng gắn liền với mảnh đất Cao Bằng?</Info>
+            <Answers>
+                <Answer>
+                    <Info>A. Chủ tịch Hồ Chí Minh</Info>
+                    <IsCorrect>true</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>B. Đại tướng Võ Nguyên Giáp</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>C. Nhà thơ Tố Hữu</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>D. Nhà văn Nguyễn Tuân</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+            </Answers>
+            <UseTimer>true</UseTimer>
+            <Timer>25</Timer>
+            <Type>Single</Type>
+            <AddScore>100</AddScore>
+        </Question>
+        <Question>
+            <Info>10. Cao Bằng có bao nhiêu huyện, thành phố?</Info>
+            <Answers>
+                <Answer>
+                    <Info>A. 8</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>B. 10</Info>
+                    <IsCorrect>true</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>C. 12</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>D. 14</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+            </Answers>
+            <UseTimer>true</UseTimer>
+            <Timer>25</Timer>
+            <Type>Single</Type>
+            <AddScore>100</AddScore>
+        </Question>
+    </Questions>
 </Data>

@@ -5,31 +5,33 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Networking;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
 
     #region Variables
+    private string playerId = "1"; // ID mặc định của người chơi
+    private Data data = new Data();
 
-    private             Data                data                    = new Data();
+    [SerializeField] GameEvents events = null;
 
-    [SerializeField]    GameEvents          events                  = null;
+    [SerializeField] Animator timerAnimtor = null;
+    [SerializeField] TextMeshProUGUI timerText = null;
+    [SerializeField] Color timerHalfWayOutColor = Color.yellow;
+    [SerializeField] Color timerAlmostOutColor = Color.red;
+    private Color timerDefaultColor = Color.white;
 
-    [SerializeField]    Animator            timerAnimtor            = null;
-    [SerializeField]    TextMeshProUGUI     timerText               = null;
-    [SerializeField]    Color               timerHalfWayOutColor    = Color.yellow;
-    [SerializeField]    Color               timerAlmostOutColor     = Color.red;
-    private             Color               timerDefaultColor       = Color.white;
+    private List<AnswerData> PickedAnswers = new List<AnswerData>();
+    private List<int> FinishedQuestions = new List<int>();
+    private int currentQuestion = 0;
 
-    private             List<AnswerData>    PickedAnswers           = new List<AnswerData>();
-    private             List<int>           FinishedQuestions       = new List<int>();
-    private             int                 currentQuestion         = 0;
+    private int timerStateParaHash = 0;
 
-    private             int                 timerStateParaHash      = 0;
+    private IEnumerator IE_WaitTillNextRound = null;
+    private IEnumerator IE_StartTimer = null;
 
-    private             IEnumerator         IE_WaitTillNextRound    = null;
-    private             IEnumerator         IE_StartTimer           = null;
-
-    private             bool                IsFinished
+    private bool IsFinished
     {
         get
         {
@@ -37,37 +39,27 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    private UIManager uiManager;
+
     #endregion
 
     #region Default Unity methods
 
-    /// <summary>
-    /// Function that is called when the object becomes enabled and active
-    /// </summary>
     private void OnEnable()
     {
         events.UpdateQuestionAnswer += UpdateAnswers;
     }
-    /// <summary>
-    /// Function that is called when the behaviour becomes disabled
-    /// </summary>
+
     private void OnDisable()
     {
         events.UpdateQuestionAnswer -= UpdateAnswers;
     }
 
-    /// <summary>
-    /// Function that is called when the script instance is being loaded.
-    /// </summary>
     private void Awake()
     {
-        //If current level is a first level, reset the final score back to zero.
         if (events.level == 1) { events.CurrentFinalScore = 0; }
     }
 
-    /// <summary>
-    /// Function that is called when the script instance is being loaded.
-    /// </summary>
     private void Start()
     {
         events.StartupHighscore = PlayerPrefs.GetInt(GameUtility.SavePrefKey);
@@ -81,52 +73,60 @@ public class GameManager : MonoBehaviour {
         UnityEngine.Random.InitState(seed);
 
         Display();
+
+        uiManager = FindObjectOfType<UIManager>();
     }
 
     #endregion
 
-    /// <summary>
-    /// Function that is called to update new selected answer.
-    /// </summary>
     public void UpdateAnswers(AnswerData newAnswer)
+{
+    // Kiểm tra xem currentQuestion có nằm trong phạm vi của mảng data.Questions hay không
+    if (currentQuestion < 0 || currentQuestion >= data.Questions.Length)
     {
-        if (data.Questions[currentQuestion].Type == AnswerType.Single)
+        Debug.LogError("Current question index is out of bounds.");
+        return;
+    }
+
+    // Kiểm tra xem AnswerData có tồn tại trong danh sách PickedAnswers hay không
+    if (PickedAnswers.Contains(newAnswer))
+    {
+        Debug.LogWarning("New answer is already in the PickedAnswers list.");
+        return;
+    }
+
+    if (data.Questions[currentQuestion].Type == AnswerType.Single)
+    {
+        foreach (var answer in PickedAnswers)
         {
-            foreach (var answer in PickedAnswers)
+            if (answer != newAnswer)
             {
-                if (answer != newAnswer)
-                {
-                    answer.Reset();
-                }
+                answer.Reset();
             }
-            PickedAnswers.Clear();
-            PickedAnswers.Add(newAnswer);
+        }
+        PickedAnswers.Clear();
+        PickedAnswers.Add(newAnswer);
+    }
+    else
+    {
+        bool alreadyPicked = PickedAnswers.Exists(x => x == newAnswer);
+        if (alreadyPicked)
+        {
+            PickedAnswers.Remove(newAnswer);
         }
         else
         {
-            bool alreadyPicked = PickedAnswers.Exists(x => x == newAnswer);
-            if (alreadyPicked)
-            {
-                PickedAnswers.Remove(newAnswer);
-            }
-            else
-            {
-                PickedAnswers.Add(newAnswer);
-            }
+            PickedAnswers.Add(newAnswer);
         }
     }
+}
 
-    /// <summary>
-    /// Function that is called to clear PickedAnswers list.
-    /// </summary>
+
     public void EraseAnswers()
     {
         PickedAnswers = new List<AnswerData>();
     }
 
-    /// <summary>
-    /// Function that is called to display new question.
-    /// </summary>
     void Display()
     {
         EraseAnswers();
@@ -135,7 +135,8 @@ public class GameManager : MonoBehaviour {
         if (events.UpdateQuestionUI != null)
         {
             events.UpdateQuestionUI(question);
-        } else { Debug.LogWarning("Ups! Something went wrong while trying to display new Question UI Data. GameEvents.UpdateQuestionUI is null. Issue occured in GameManager.Display() method."); }
+        }
+        else { Debug.LogWarning("Ups! Something went wrong while trying to display new Question UI Data. GameEvents.UpdateQuestionUI is null. Issue occured in GameManager.Display() method."); }
 
         if (question.UseTimer)
         {
@@ -143,16 +144,17 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    /// <summary>
-    /// Function that is called to accept picked answers and check/display the result.
-    /// </summary>
     public void Accept()
     {
         UpdateTimer(false);
         bool isCorrect = CheckAnswers();
         FinishedQuestions.Add(currentQuestion);
 
-        UpdateScore(isCorrect ? data.Questions[currentQuestion].AddScore : -data.Questions[currentQuestion].AddScore);
+        if (isCorrect)
+        {
+            UpdateScore(data.Questions[currentQuestion].AddScore);
+        }
+
 
         if (IsFinished)
         {
@@ -164,10 +166,10 @@ public class GameManager : MonoBehaviour {
             SetHighscore();
         }
 
-        var type 
-            = (IsFinished) 
-            ? UIManager.ResolutionScreenType.Finish 
-            : (isCorrect) ? UIManager.ResolutionScreenType.Correct 
+        var type
+            = (IsFinished)
+            ? UIManager.ResolutionScreenType.Finish
+            : (isCorrect) ? UIManager.ResolutionScreenType.Correct
             : UIManager.ResolutionScreenType.Incorrect;
 
         events.DisplayResolutionScreen?.Invoke(type, data.Questions[currentQuestion].AddScore);
@@ -207,6 +209,7 @@ public class GameManager : MonoBehaviour {
                 break;
         }
     }
+
     IEnumerator StartTimer()
     {
         var totalTime = data.Questions[currentQuestion].Timer;
@@ -233,6 +236,7 @@ public class GameManager : MonoBehaviour {
         }
         Accept();
     }
+
     IEnumerator WaitTillNextRound()
     {
         yield return new WaitForSeconds(GameUtility.ResolutionDelayTime);
@@ -241,20 +245,11 @@ public class GameManager : MonoBehaviour {
 
     #endregion
 
-    /// <summary>
-    /// Function that is called to check currently picked answers and return the result.
-    /// </summary>
     bool CheckAnswers()
     {
-        if (!CompareAnswers())
-        {
-            return false;
-        }
-        return true;
+        return CompareAnswers();
     }
-    /// <summary>
-    /// Function that is called to compare picked answers with question correct answers.
-    /// </summary>
+
     bool CompareAnswers()
     {
         if (PickedAnswers.Count > 0)
@@ -262,47 +257,39 @@ public class GameManager : MonoBehaviour {
             List<int> c = data.Questions[currentQuestion].GetCorrectAnswers();
             List<int> p = PickedAnswers.Select(x => x.AnswerIndex).ToList();
 
-            var f = c.Except(p).ToList();
-            var s = p.Except(c).ToList();
+            // Số lượng đáp án đúng đã chọn
+            int correctPickedCount = p.Count(x => c.Contains(x));
 
-            return !f.Any() && !s.Any();
+            // Số lượng đáp án đúng tổng cộng
+            int totalCorrectCount = c.Count;
+
+            // Trả về true nếu số lượng đáp án đúng đã chọn bằng số lượng đáp án đúng tổng cộng
+            return correctPickedCount == totalCorrectCount;
         }
         return false;
     }
 
-    /// <summary>
-    /// Function that is called to load data from the xml file.
-    /// </summary>
+
     void LoadData()
     {
         var path = Path.Combine(GameUtility.FileDir, GameUtility.FileName + events.level + ".xml");
         data = Data.Fetch(path);
     }
 
-    /// <summary>
-    /// Function that is called restart the game.
-    /// </summary>
     public void RestartGame()
     {
-        //If next level is the first level, meaning that we start playing a game again, reset the final score.
         if (events.level == 1) { events.CurrentFinalScore = 0; }
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    /// <summary>
-    /// Function that is called to quit the application.
-    /// </summary>
+
     public void QuitGame()
     {
-        //On quit reset the current level back to the first level.
         events.level = 1;
 
         Application.Quit();
     }
 
-    /// <summary>
-    /// Function that is called to set new highscore if game score is higher.
-    /// </summary>
     private void SetHighscore()
     {
         var highscore = PlayerPrefs.GetInt(GameUtility.SavePrefKey);
@@ -310,10 +297,52 @@ public class GameManager : MonoBehaviour {
         {
             PlayerPrefs.SetInt(GameUtility.SavePrefKey, events.CurrentFinalScore);
         }
+
+        // Gửi điểm về server
+        if (highscore < 0)
+        {
+            StartCoroutine(SendScoreToServer(playerId, 0));
+        }
+        StartCoroutine(SendScoreToServer(playerId, events.CurrentFinalScore));
     }
-    /// <summary>
-    /// Function that is called update the score and update the UI.
-    /// </summary>
+
+    private IEnumerator SendScoreToServer(string playerId, int score)
+    {
+        string url = "http://localhost:3000/submit-score"; // Thay đổi URL nếu cần
+
+        ScoreData scoreData = new ScoreData { playerId = playerId, score = score };
+        string jsonData = JsonUtility.ToJson(scoreData);
+
+        using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
+        {
+            byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonData);
+            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+            request.downloadHandler = new DownloadHandlerBuffer();
+            request.SetRequestHeader("Content-Type", "application/json");
+
+            yield return request.SendWebRequest();
+
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                Debug.Log("Score submitted successfully");
+            }
+            else
+            {
+                Debug.LogError("Failed to submit score: " + request.error);
+            }
+        }
+    }
+
+    [System.Serializable]
+    private class ScoreData
+    {
+        public string playerId; // Đã thêm trường này
+        public int score;
+    }
+
+
+
+
     private void UpdateScore(int add)
     {
         events.CurrentFinalScore += add;
@@ -329,6 +358,7 @@ public class GameManager : MonoBehaviour {
 
         return data.Questions[currentQuestion];
     }
+
     int GetRandomQuestionIndex()
     {
         var random = 0;
@@ -341,6 +371,36 @@ public class GameManager : MonoBehaviour {
         }
         return random;
     }
+    private bool hasUsedFiftyFifty = false;
 
+    public void UseFiftyFifty()
+    {
+        if (hasUsedFiftyFifty)
+        {
+            return;
+        }
+
+        var question = data.Questions[currentQuestion];
+        var correctAnswerIndex = question.Answers.ToList().FindIndex(a => a.IsCorrect);
+
+        var wrongAnswers = new List<int>();
+        for (int i = 0; i < question.Answers.Length; i++)
+        {
+            if (i != correctAnswerIndex)
+            {
+                wrongAnswers.Add(i);
+            }
+        }
+
+        var answersToRemove = wrongAnswers.OrderBy(x => UnityEngine.Random.value).Take(2).ToList();
+
+        if (uiManager != null)
+        {
+            uiManager.HideAnswers(answersToRemove);
+        }
+
+        hasUsedFiftyFifty = true;
+        uiManager.DisableFiftyFiftyButton();
+    }
     #endregion
 }

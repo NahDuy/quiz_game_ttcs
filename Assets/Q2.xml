@@ -1,55 +1,255 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <Data xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Questions>
-    <Question>
-      <Info>Loại trái cây nào được mệnh danh là "nữ hoàng" của Cần Thơ?</Info>
-      <Answers>
-        <Answer>
-          <Info>Xoài</Info>
-          <IsCorrect>false</IsCorrect>
-        </Answer>
-        <Answer>
-          <Info>Sầu riêng</Info>
-          <IsCorrect>true</IsCorrect>
-        </Answer>
-        <Answer>
-          <Info>Mận</Info>
-          <IsCorrect>false</IsCorrect>
-        </Answer>
-        <Answer>
-          <Info>Bưởi</Info>
-          <IsCorrect>false</IsCorrect>
-        </Answer>
-      </Answers>
-      <UseTimer>true</UseTimer>
-      <Timer>25</Timer>
-      <Type>Single</Type>
-      <AddScore>100</AddScore>
-    </Question>
-    <Question>
-      <Info>Nơi đây nổi tiếng với khu chợ nổi nào thu hút du khách trong và ngoài nước?</Info>
-      <Answers>
-        <Answer>
-          <Info>Chợ Nổi Phong Điền</Info>
-          <IsCorrect>false</IsCorrect>
-        </Answer>
-        <Answer>
-          <Info>Chợ Nổi Cái Bè</Info>
-          <IsCorrect>false</IsCorrect>
-        </Answer>
-        <Answer>
-          <Info>Chợ Nổi Cái Răng</Info>
-          <IsCorrect>true</IsCorrect>
-        </Answer>
-        <Answer>
-          <Info>Chợ Nổi Phụng Hiệp</Info>
-          <IsCorrect>false</IsCorrect>
-        </Answer>
-      </Answers>
-      <UseTimer>true</UseTimer>
-      <Timer>25</Timer>
-      <Type>Single</Type>
-      <AddScore>100</AddScore>
-    </Question>
-  </Questions>
+    <Questions>
+        <Question>
+            <Info>Núi nào ở Lạng Sơn được mệnh danh là "nóc nhà Đông Dương"?</Info>
+            <Answers>
+                <Answer>
+                    <Info>Fansipan</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Bà Đen</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Ngọc Linh</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Mẫu Sơn</Info>
+                    <IsCorrect>true</IsCorrect>
+                </Answer>
+            </Answers>
+            <UseTimer>true</UseTimer>
+            <Timer>25</Timer>
+            <Type>Single</Type>
+            <AddScore>100</AddScore>
+        </Question>
+        <Question>
+            <Info>Lễ hội nào ở Lạng Sơn thu hút đông đảo du khách nhất vào dịp đầu năm?</Info>
+            <Answers>
+                <Answer>
+                    <Info>Lễ hội chùa Tam Thanh</Info>
+                    <IsCorrect>true</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Lễ hội chùa Tiên</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Lễ hội Đền Mẫu Đồng Đăng</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Lễ hội Đền Mẫu Lạng Sơn</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+            </Answers>
+            <UseTimer>true</UseTimer>
+            <Timer>25</Timer>
+            <Type>Single</Type>
+            <AddScore>100</AddScore>
+        </Question>
+        <Question>
+            <Info>Di tích lịch sử nào ở Lạng Sơn gắn liền với chiến thắng Chi Lăng - Xương Giang oanh liệt?</Info>
+            <Answers>
+                <Answer>
+                    <Info>Thành nhà Mạc</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Cửa ải Quan Sơn</Info>
+                    <IsCorrect>true</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Núi Mẫu Sơn</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Ải Kỳ Lừa</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+            </Answers>
+            <UseTimer>true</UseTimer>
+            <Timer>25</Timer>
+            <Type>Single</Type>
+            <AddScore>100</AddScore>
+        </Question>
+        <Question>
+            <Info>Làng nghề truyền thống nào ở Lạng Sơn nổi tiếng với những sản phẩm tinh xảo làm từ đá?</Info>
+            <Answers>
+                <Answer>
+                    <Info>Làng nghề đá Chàng Sơn</Info>
+                    <IsCorrect>true</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Làng nghề thêu Lục Ngạn</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Làng nghề dệt thổ cẩm Lộc Bình</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Làng nghề đan lát Tuyên Quang</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+            </Answers>
+            <UseTimer>true</UseTimer>
+            <Timer>25</Timer>
+            <Type>Single</Type>
+            <AddScore>100</AddScore>
+        </Question>
+        <Question>
+            <Info>Món ăn nào là đặc sản trứ danh của Lạng Sơn mà du khách không thể bỏ qua?</Info>
+            <Answers>
+                <Answer>
+                    <Info>Vịt quay Lạng Sơn</Info>
+                    <IsCorrect>true</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Bánh cuốn Cao Lạc</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Bánh chưng Bờ Đậu</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Xôi ngũ sắc Lục Ngạn</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+            </Answers>
+            <UseTimer>true</UseTimer>
+            <Timer>25</Timer>
+            <Type>Single</Type>
+            <AddScore>100</AddScore>
+        </Question>
+        <Question>
+            <Info>Loại trái cây nào được mệnh danh là "nữ hoàng" của Lạng Sơn bởi hương vị thơm ngon và giá trị dinh dưỡng cao?</Info>
+            <Answers>
+                <Answer>
+                    <Info>Thanh long Bình Liêu</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Cam Cao Phong</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Bưởi Phja Đen</Info>
+                    <IsCorrect>true</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Hồng Xuân Đan</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+            </Answers>
+            <UseTimer>true</UseTimer>
+            <Timer>25</Timer>
+            <Type>Single</Type>
+            <AddScore>100</AddScore>
+        </Question>
+        <Question>
+            <Info>Di sản văn hóa nào ở Lạng Sơn được UNESCO công nhận là Di sản văn hóa thế giới?</Info>
+            <Answers>
+                <Answer>
+                    <Info>Quần thể di tích danh thắng Tràng An</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Khu di tích Cố đô Hoa Lư</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Phong cảnh Hương Trì</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Núi Mẫu Sơn và Tam Thanh</Info>
+                    <IsCorrect>true</IsCorrect>
+                </Answer>
+            </Answers>
+            <UseTimer>true</UseTimer>
+            <Timer>25</Timer>
+            <Type>Single</Type>
+            <AddScore>100</AddScore>
+        </Question>
+        <Question>
+            <Info>Bộ phận nào trên cơ thể voi được dùng để chế biến món "lẩu voi" độc đáo của người Tày ở Lạng Sơn?</Info>
+            <Answers>
+                <Answer>
+                    <Info>Da voi</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Thịt voi</Info>
+                    <IsCorrect>true</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Ngà voi</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Vòi voi</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+            </Answers>
+            <UseTimer>true</UseTimer>
+            <Timer>25</Timer>
+            <Type>Single</Type>
+            <AddScore>100</AddScore>
+        </Question>
+        <Question>
+            <Info>Nhóm dân tộc nào chiếm số lượng đông nhất ở Lạng Sơn?</Info>
+            <Answers>
+                <Answer>
+                    <Info>Kinh</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Tày</Info>
+                    <IsCorrect>true</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Nùng</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Dao</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+            </Answers>
+            <UseTimer>true</UseTimer>
+            <Timer>25</Timer>
+            <Type>Single</Type>
+            <AddScore>100</AddScore>
+        </Question>
+        <Question>
+            <Info>Ngọn núi nào ở Lạng Sơn sở hữu hệ thống hang động đá vôi kỳ vĩ và thu hút nhiều du khách khám phá?</Info>
+            <Answers>
+                <Answer>
+                    <Info>Núi Mẫu Sơn</Info>
+                    <IsCorrect>true</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Núi Voi</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Núi Phai Da</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+                <Answer>
+                    <Info>Núi Mèo</Info>
+                    <IsCorrect>false</IsCorrect>
+                </Answer>
+            </Answers>
+            <UseTimer>true</UseTimer>
+            <Timer>25</Timer>
+            <Type>Single</Type>
+            <AddScore>100</AddScore>
+        </Question>
+    </Questions>
 </Data>
